@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisan Sarkar - Software Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Mono', monospace;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* cursor: none; removed to show default cursor */
+    }
+
+    /* Header Section */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      background: url('https://source.unsplash.com/random/1920x1080/?tech') no-repeat center/cover;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Section Styling */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #00d4ff;
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s ease forwards 0.5s;
+    }
+
+    @keyframes slideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Skills Section */
+    #skills ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      list-style: none;
+    }
+
+    #skills li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    #skills li:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Contact Section */
+    #contact p {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    #contact a {
+      color: #00d4ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    #contact a:hover {
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: 0.9rem;
+    }
+
+    /* Cursor Ball Styling */
+    #cursor-ball {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #00d4ff 20%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    /* Hover Effect on Interactive Elements */
+    a:hover + #cursor-ball, li:hover + #cursor-ball {
+      transform: translate(-50%, -50%) scale(1.5);
+      background: radial-gradient(circle, #fff 20%, transparent 70%);
+    }
+  </style>
+</head>
+<body>
+  <!-- Cursor Ball -->
+  <div id="cursor-ball"></div>
+
+  <!-- Header with Text Scramble Animation -->
+  <header>
+    <h1 class="fade-in" data-values='["LISAN SARKAR"]'>LISAN SARKAR</h1>
+    <p class="fade-in" data-values='["SOFTWARE DEVELOPER"]'>SOFTWARE DEVELOPER</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Lisan Sarkar, a passionate software developer with expertise in building innovative, high-performance applications. I specialize in creating solutions that blend creativity with cutting-edge technology.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>Python</li>
+      <li>AI & Machine Learning</li>
+      <li>Web Development</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Want to collaborate? Reach out at <a href="mailto:lisunsarker@gmail.com">lisunsarker@gmail.com</a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Lisan Sarkar. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Text Scramble Animation
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ*; <>#";
+    const elements = document.querySelectorAll("[data-values]");
+    
+    elements.forEach(element => {
+      const values = JSON.parse(element.dataset.values);
+      let currentIndex = 0;
+      let interval = null;
+
+      function animateText(targetText) {
+        let iteration = 0;
+        clearInterval(interval);
+
+        interval = setInterval(() => {
+          element.innerText = targetText
+            .split("")
+            .map((letter, index) => {
+              if (index < iteration) {
+                return targetText[index];
+              }
+              return characters[Math.floor(Math.random() * characters.length)];
+            })
+            .join("");
+
+          if (iteration >= targetText.length) {
+            clearInterval(interval);
+          }
+          iteration += 1 / 3;
+        }, 50);
+      }
+
+      function cycleText() {
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % values.length;
+          animateText(values[currentIndex]);
+        }, 5000);
+      }
+
+      animateText(values[0]);
+      cycleText();
+    });
+
+    // Cursor Ball Animation
+    const cursorBall = document.getElementById('cursor-ball');
+    let mouseX = 0, mouseY = 0;
+    let ballX = 0, ballY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateBall() {
+      const easing = 0.1;
+      ballX += (mouseX - ballX) * easing;
+      ballY += (mouseY - ballY) * easing;
+
+      cursorBall.style.left = `${ballX}px`;
+      cursorBall.style.top = `${ballY}px`;
+
+      requestAnimationFrame(animateBall);
+    }
+
+    animateBall();
+  </script>
+</body>
+</html>
